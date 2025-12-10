@@ -1,0 +1,4 @@
+repository "GMNG_4322 V1/GMNG_4322 V1@20067526067157@cloud"
+  path "/"
+    br "/main"
+    co "/main"
