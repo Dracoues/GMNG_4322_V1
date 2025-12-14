@@ -6,16 +6,17 @@ using UnityEngine.UI;
 
 //using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IDamageable
 {
 
-    public int health = 100;
+    public float health = 100;
     public int oil = 0;
     public float moveSpeed = 8f;
     public float jumpForce = 10f;
     public Transform groundCheck;
     public float groundCheckRadius = 0.2f;
     public LayerMask groundLayer;
+
     public Image HealthImage;
     public Image OilImage;
 
@@ -55,33 +56,37 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+
+        if (health <= 0)
+        {
+            Die();
+        }
+
         horizontal = Input.GetAxisRaw("Horizontal");
 
         // allows player movement
         float moveInput = Input.GetAxis("Horizontal");
         rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
 
-        // allows player jump
-        if (isGrounded)
+        if(isGrounded)
         {
             extraJumps = extraJumpsValue;
         }
 
-        if(Input.GetKey(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space))
         {
             if (isGrounded)
             {
-                extraJumps = extraJumpsValue;
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
                 PlaySFX(JumpClip);
             }
-            else if (extraJumps > 0)
+            else if(extraJumps>0)
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
                 extraJumps--;
                 PlaySFX(JumpClip);
             }
-
+            
         }
 
         SetAnimation(moveInput);
@@ -132,22 +137,6 @@ public class Player : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Damage")
-        {
-            health -= 25;
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-            StartCoroutine(BlinkRed());
-            //damageFlash.CallDamageFlash();
-
-            if (health <= 0)
-            {
-                Die();
-            }
-        }
-    }
-
     private IEnumerator BlinkRed()
     {
         spriteRenderer.color = Color.red;
@@ -160,4 +149,9 @@ public class Player : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene("GMNG_4322 V2");
     }
 
+    public void Damage(float damageAmount)
+    {
+        StartCoroutine(BlinkRed());
+        health -= damageAmount;
+    }
 }

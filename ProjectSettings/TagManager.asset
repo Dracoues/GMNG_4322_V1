@@ -4,9 +4,12 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Damage
   - OilText
+  - Damage
   - HealthText
+  - Enemy Stego
+  - Enemy Carni
+  - Enemy Flyer
   layers:
   - Default
   - TransparentFX
@@ -14,14 +17,14 @@ TagManager:
   - 
   - Water
   - UI
+  - Player
+  - Enemy
+  - Stego
+  - 
+  - 
+  - 
   - Ground
-  - Collectibles
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Background
   - 
   - 
   - 
