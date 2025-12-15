@@ -16,7 +16,7 @@ public class Player : MonoBehaviour, IDamageable
     public Player_Idle idleState;
     public Player_Jump jumpState;
     public Player_Move moveState;
-    public Player_Attack attackState;
+   // public Player_Attack attackState;
 
     public PlayerInput playerInput;
 
@@ -38,7 +38,7 @@ public class Player : MonoBehaviour, IDamageable
     public bool walkPressed;
     public bool jumpPressed;
     public bool jumpReleased;
-    public bool attackPressed;
+    //public bool attackPressed;
 
     public int extraJumpsValue = 1;
     public int extraJumps;
@@ -69,7 +69,7 @@ public class Player : MonoBehaviour, IDamageable
         idleState = new Player_Idle(this);
         jumpState = new Player_Jump(this);
         moveState = new Player_Move(this);
-        attackState = new Player_Attack(this);
+        //attackState = new Player_Attack(this);
     }
 
     void Start()
@@ -174,18 +174,18 @@ public class Player : MonoBehaviour, IDamageable
         health -= damageAmount;
     }
 
-    public void AttackAnimationFinished()
-    {
-        currentState.AttackAnimationFinished();
-    }
+    /*public void AttackAnimationFinished()
+   {
+       currentState.AttackAnimationFinished();
+   }
 
-    public void OnAttack(InputValue value)
-    {
-        Debug.Log("Player Attacked");
-     
-        attackPressed = value.isPressed;
+  public void OnAttack(InputValue value)
+   {
+       Debug.Log("Player Attacked");
 
-    }
+       attackPressed = value.isPressed;
+
+   }*/
 
     public void OnMove(InputValue value)
     {

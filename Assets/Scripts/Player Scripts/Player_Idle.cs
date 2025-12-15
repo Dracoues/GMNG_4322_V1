@@ -14,10 +14,7 @@ public class Player_Idle : Player_Base
     {
         base.Update();
 
-        if(AttackPressed)
-           player.ChangeState(player.attackState);
-
-        else if (JumpPressed && player.isGrounded)
+        if (JumpPressed && player.isGrounded)
         {
             player.jumpPressed = false;
             player.ChangeState(player.jumpState);

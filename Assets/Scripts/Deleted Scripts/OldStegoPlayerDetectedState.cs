@@ -1,4 +1,4 @@
-using UnityEngine;
+/*using UnityEngine;
 
 //stego
 
@@ -73,3 +73,4 @@ public class PlayerDetectedState : StegoBaseState
 }
 
 //stego end
+*/

@@ -7,7 +7,7 @@ public abstract class Player_Base
     protected bool JumpPressed {get => player.jumpPressed; set => player.jumpPressed = value;}
     protected bool JumpReleased { get => player.jumpReleased; set => player.jumpReleased = value; }
     protected bool WalkPressed => player.walkPressed;
-    protected bool AttackPressed => player.attackPressed;
+    //protected bool AttackPressed => player.attackPressed;
     protected Vector2 MoveInput => player.moveInput;
 
     public Player_Base(Player player)

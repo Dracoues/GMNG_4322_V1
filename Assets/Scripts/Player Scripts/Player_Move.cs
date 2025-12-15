@@ -13,10 +13,7 @@ public class Player_Move : Player_Base
     {
         base.Update();
 
-        if (AttackPressed)
-            player.ChangeState(player.attackState);
-
-        else if (JumpPressed)
+        if (JumpPressed)
         {
             player.ChangeState(player.jumpState);
             Debug.Log("in player move jump check");
