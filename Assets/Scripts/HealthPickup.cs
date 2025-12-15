@@ -40,6 +40,9 @@ public class Health : MonoBehaviour
 
             player.health += 1;
 
+            if(player.health > 100)
+                player.health = 100;
+
             player.PlaySFX(healthClip);
 
             healthText.text = player.health.ToString();
