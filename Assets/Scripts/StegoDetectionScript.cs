@@ -19,17 +19,17 @@ public class StegoDetectionScript : MonoBehaviour
         return hitColliders.Length;
     }
     
-    public bool StegoAggro(int stegoCount >= 2)
+        public bool StegoAggro()
     {
         int count = stegoIndex();
         Debug.Log(count);
-        return count > stegoCount;
+        return count >= 2;
     }
-    
-    public bool CarniAggro(int stegoCount <= 2)
+
+    public bool CarniAggro()
     {
         int count = stegoIndex();
         Debug.Log(count);
-        return count > stegoCount;
+        return count <= 2;
     }
 }
