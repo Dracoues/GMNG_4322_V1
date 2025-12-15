@@ -30,10 +30,10 @@ public class StegoAttackState : StegoBaseState
     {
         base.PhysicsUpdate();
 
-        if (stego.CheckForMeleeTarget() && stego.detector.StegoAggro())
-        {
+        if(stego.CheckForMeleeTarget() && stego.StegoChargeState())
+        
         stego.SwitchState(stego.stegoAttackState);
-        }
+        Attack();
 
     }
 
