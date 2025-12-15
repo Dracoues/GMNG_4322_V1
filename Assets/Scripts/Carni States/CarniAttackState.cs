@@ -10,8 +10,6 @@ public class CarniAttackState : CarniBaseState
 
     {
 
-
-
     }
 
 
@@ -21,13 +19,7 @@ public class CarniAttackState : CarniBaseState
     {
 
         base.Enter();
-
-
-
         Debug.Log("Entered Attack");
-
-
-
     }
 
 
@@ -37,7 +29,6 @@ public class CarniAttackState : CarniBaseState
     {
 
         base.Exit();
-
         Debug.Log("Exited Attack");
 
     }
@@ -47,9 +38,7 @@ public class CarniAttackState : CarniBaseState
     public override void LogicUpdate()
 
     {
-
         base.LogicUpdate();
-
     }
 
 
@@ -57,9 +46,7 @@ public class CarniAttackState : CarniBaseState
     public override void PhysicsUpdate()
 
     {
-
         base.PhysicsUpdate();
-
     }
 
 
@@ -69,7 +56,6 @@ public class CarniAttackState : CarniBaseState
     {
 
         base.AnimationAttackTrigger();
-
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(carni.ledgeDetector.position, carni.stats.meleeDetectDistance, carni.damageableLayer);
 
 
