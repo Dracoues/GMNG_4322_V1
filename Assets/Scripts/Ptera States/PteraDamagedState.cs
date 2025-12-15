@@ -2,7 +2,7 @@ using UnityEngine;
 
 
 
-public class DamagedState : StegoBaseState
+public class PteraDamagedState : StegoBaseState
 
 {
 
@@ -12,23 +12,7 @@ public class DamagedState : StegoBaseState
 
 
 
-    public DamagedState(StegoEnemy stego, string animationName) : base(stego, animationName)
-
-    {
-
-
-
-    }
-
-    public DamagedState(PteraEnemy ptera, string animationName) : base(ptera, animationName)
-
-    {
-
-
-
-    }
-
-    public DamagedState(CarniEnemy carni, string animationName) : base(carni, animationName)
+    public PteraDamagedState(StegoEnemy stego, string animationName) : base(stego, animationName)
 
     {
 

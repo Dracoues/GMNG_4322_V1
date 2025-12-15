@@ -175,6 +175,10 @@ public class Player : MonoBehaviour, IDamageable
     {
         moveInput = value.Get<Vector2>();
     }
+    public void OnJump(InputValue value)
+    {
+        
+    }
 
 
     public void Damage(float damageAmount, float KBForce, Vector2 KBAngle) { }

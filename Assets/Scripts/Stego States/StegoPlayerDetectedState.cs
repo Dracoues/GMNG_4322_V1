@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class PlayerDetectedState : StegoBaseState
+public class StegoPlayerDetectedState : StegoBaseState
 {
-    public PlayerDetectedState(StegoEnemy stego, string animationName) : base(stego, animationName)
+    public StegoPlayerDetectedState(StegoEnemy stego, string animationName) : base(stego, animationName)
     {
 
     }

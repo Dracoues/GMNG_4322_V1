@@ -9,7 +9,7 @@ public class StegoEnemy : MonoBehaviour, IDamageable
     public StegoBaseState currentState;
 
     public PatrolState patrolState;
-    public PlayerDetectedState playerDetectedState;
+    public StegoPlayerDetectedState playerDetectedState;
     public StegoChargeState stegoChargeState;
     public StegoAttackState stegoAttackState;
     public StegoDamagedState damagedState;

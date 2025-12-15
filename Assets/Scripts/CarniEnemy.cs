@@ -19,15 +19,15 @@ public class CarniEnemy : MonoBehaviour, IDamageable
 
 
 
-    public PatrolState patrolState;
+    public CarniPatrolState patrolState;
 
-    public PlayerDetectedState playerDetectedState;
+    public CarniPlayerDetectedState playerDetectedState;
 
     public CarniChargeState carniChargeState;
 
     public CarniAttackState carniAttackState;
 
-    public DamagedState damagedState;
+    public CarniDamagedState damagedState;
 
 
 
@@ -75,15 +75,15 @@ public class CarniEnemy : MonoBehaviour, IDamageable
 
     {
 
-        patrolState = new PatrolState(this, "patrol");
+        patrolState = new CarniPatrolState(this, "patrol");
 
-        playerDetectedState = new PlayerDetectedState(this, "playerDetected");
+        playerDetectedState = new CarniPlayerDetectedState(this, "playerDetected");
 
         carniChargeState = new CarniChargeState(this, "charge");
 
         carniAttackState = new CarniAttackState(this, "attack");
 
-        damagedState = new DamagedState(this, "damaged");
+        //damagedState = new CarniDamagedState(this, "damaged");
 
 
 
@@ -265,7 +265,7 @@ public class CarniEnemy : MonoBehaviour, IDamageable
 
         damagedState.KBAngle = KBAngle;
 
-        SwitchState(damagedState);
+        //SwitchState(damagedState);
 
         currentHealth -= damageAmount;
 
