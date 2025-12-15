@@ -22,14 +22,16 @@ public class StegoDetectionScript : MonoBehaviour
         public bool StegoAggro()
     {
         int count = stegoIndex();
-        Debug.Log(count);
+        //stego.lastStegoCount = count;
+        UnityEngine.Debug.Log(count);
         return count >= 2;
     }
 
     public bool CarniAggro()
     {
         int count = stegoIndex();
-        Debug.Log(count);
+        //stego.lastStegoCount = count;
+        UnityEngine.Debug.Log(count);
         return count <= 2;
     }
 }
