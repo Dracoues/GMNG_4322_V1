@@ -1134,6 +1134,8 @@ GameObject:
   - component: {fileID: 613927428}
   - component: {fileID: 613927430}
   - component: {fileID: 613927432}
+  - component: {fileID: 613927433}
+  - component: {fileID: 613927434}
   m_Layer: 7
   m_Name: Actual Enemy Stego
   m_TagString: Enemy Stego
@@ -1320,13 +1322,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 613927425}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09731cdbdeb027745887068ff27f6063, type: 3}
+  m_Script: {fileID: 11500000, guid: 0bad5859c880f904581c9a351be29f2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ControlState
   anim: {fileID: 613927430}
   rb: {fileID: 613927429}
   ledgeDetector: {fileID: 216187764}
-  stegoDetector: {fileID: 1841814548}
+  stegoDetectorBody: {fileID: 1841814548}
   groundLayer:
     serializedVersion: 2
     m_Bits: 4096
@@ -1344,9 +1346,40 @@ MonoBehaviour:
     m_Bits: 256
   facingDirection: 1
   stateTime: 0
-  stats: {fileID: 11400000, guid: 6996d5e271821ad49ad5a8e47ea3a69b, type: 2}
+  stats: {fileID: 11400000, guid: eaf1020ca19f093489476ecf372c670d, type: 2}
   currentHealth: 0
-  stegoCounter: 0
+  stegoDetector: {fileID: 613927434}
+--- !u!114 &613927433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 613927425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a5c7ee040a204e46b057ccb39af08b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthPickup
+  health: 0
+  maxHealth: 20
+--- !u!114 &613927434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 613927425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f919fdc734b45164eb0340a4b84c5044, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StegoDetectionScript
+  detectionPoint: {fileID: 1841814548}
+  detectionRadius: 5
+  stegoLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0

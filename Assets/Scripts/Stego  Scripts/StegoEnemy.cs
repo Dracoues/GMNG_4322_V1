@@ -17,7 +17,7 @@ public class StegoEnemy : MonoBehaviour, IDamageable
     public Animator anim;
     public Rigidbody2D rb;
     public Transform ledgeDetector;
-    public Transform stegoDetector;
+    public Transform stegoDetectorBody;
     public LayerMask groundLayer, playerLayer, damageableLayer, enemyLayer, stegoLayer;
     public TagHandle stegoTag;
 
@@ -39,7 +39,7 @@ public class StegoEnemy : MonoBehaviour, IDamageable
     private void Awake() //walkign around
     {
         patrolState = new PatrolState(this, "patrol");
-        //playerDetectedState = new PlayerDetectedState(this, "playerDetected");
+        playerDetectedState = new StegoPlayerDetectedState(this, "playerDetected");
         stegoChargeState = new StegoChargeState(this, "charge");
         stegoAttackState = new StegoAttackState(this, "attack");
         damagedState = new StegoDamagedState(this, "damaged");

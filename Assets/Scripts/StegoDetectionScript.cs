@@ -1,14 +1,11 @@
 using System.Diagnostics;
-using System.Threading.Tasks.Dataflow;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class StegoDetectionScript : MonoBehaviour
 {
 
-    public float stegoCount;
-
-
-    public TransformBlock detectionPoint;
+    public Transform detectionPoint;
     public float detectionRadius = 5f;
     public LayerMask stegoLayer;
 
@@ -19,17 +16,17 @@ public class StegoDetectionScript : MonoBehaviour
         return hitColliders.Length;
     }
     
-    public bool StegoAggro(int stegoCount >= 2)
+    public bool StegoAggro()
     {
         int count = stegoIndex();
-        Debug.Log(count);
-        return count > stegoCount;
+        UnityEngine.Debug.Log(count);
+        return count >= 2;
     }
     
-    public bool CarniAggro(int stegoCount <= 2)
+    public bool CarniAggro()
     {
         int count = stegoIndex();
-        Debug.Log(count);
-        return count > stegoCount;
+        UnityEngine.Debug.Log(count);
+        return count <= 2;
     }
 }

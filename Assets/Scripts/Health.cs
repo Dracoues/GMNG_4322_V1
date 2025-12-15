@@ -1,53 +1,34 @@
 using UnityEngine;
 
 using TMPro;
+using UnityEditor.Experimental.GraphView;
+using System;
 
 
 
-public class Health : MonoBehaviour
+public class HealthPickup : MonoBehaviour
 
 {
+    public event Action OnDamaged;
+    public event Action OnDeath;
 
-    public AudioClip healthClip;
-
-    private TextMeshProUGUI healthText;
-
-    private Animator _animator;
-
-
+    public int health;
+    public int maxHealth;
 
     private void Start()
-
     {
-
-        healthText = GameObject.FindWithTag("HealthText").GetComponent<TextMeshProUGUI>();
-
+        health = maxHealth;
     }
 
-
-
-
-
-    private void OnTriggerEnter2D(Collider2D collision)
-
+    public void ChangeHealth(int amount)
     {
+        health += amount;
 
-        if(collision.gameObject.tag == "Player")
-
-        {
-
-            Player player = collision.gameObject.GetComponent<Player>();
-
-            player.health += 1;
-
-            player.PlaySFX(healthClip);
-
-            healthText.text = player.health.ToString();
-
-            Destroy(gameObject);
-
-        }    
-
+        if (health > maxHealth)
+            health = maxHealth;
+        else if (health <= 0)
+            OnDeath?.Invoke();//Death
+        else if (amount < 0)
+            OnDamaged?.Invoke(); //Damage
     }
-
 }

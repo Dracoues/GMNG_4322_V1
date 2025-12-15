@@ -55,7 +55,7 @@ public class CarniChargeState : CarniBaseState
         }
     }
 
-    public bool CheckForCarnisForAggro()
+   /* public bool CheckForCarnisForAggro()
     {
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(carni.stegoDetector.position, carni.stats.stegoDetectDistance, carni.carniTag);
 
