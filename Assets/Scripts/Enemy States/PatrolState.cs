@@ -12,6 +12,13 @@ public class PatrolState : StegoBaseState
     public override void Enter()
     {
         base.Enter();
+        Debug.Log("Entered Patrol");
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+        Debug.Log("Exited Patrol");
     }
 
     public override void LogicUpdate()

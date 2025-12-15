@@ -7,6 +7,9 @@ using UnityEngine;
 public class EnemyStats : ScriptableObject
 {
 
+    [Header("General Stats")]
+    public float maxHealth = 20;
+
     [Header("Patrol State")]
     public float speed;
     public float cliffCheckDistance, wallDistance, enemyDistance;

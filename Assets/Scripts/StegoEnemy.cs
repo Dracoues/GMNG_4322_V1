@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEditor.Rendering;
 using UnityEngine;
 
-public class StegoEnemy : MonoBehaviour
+public class StegoEnemy : MonoBehaviour, IDamageable
 {
 
     #region Variables
@@ -12,18 +12,20 @@ public class StegoEnemy : MonoBehaviour
     public PlayerDetectedState playerDetectedState;
     public StegoChargeState stegoChargeState;
     public StegoAttackState stegoAttackState;
+    public DamagedState damagedState;
 
     public Animator anim;
     public Rigidbody2D rb;
     public Transform ledgeDetector;
     public Transform stegoDetector;
-    public LayerMask groundLayer, playerLayer, damageableLayer, enemyLayer;
+    public LayerMask groundLayer, playerLayer, damageableLayer, enemyLayer, stegoLayer;
     public TagHandle stegoTag;
 
     public int facingDirection = 1;
     public float stateTime;         //keep track of the time when we enter a new state
 
     public EnemyStats stats;
+    public float currentHealth;
 
     public float stegoCounter;
     
@@ -34,18 +36,20 @@ public class StegoEnemy : MonoBehaviour
 
     private void Awake()
     {
-        patrolState = new PatrolState(this, "patrolState");
+        patrolState = new PatrolState(this, "patrol");
         playerDetectedState = new PlayerDetectedState(this, "playerDetected");
-        stegoChargeState = new StegoChargeState(this, "chargeState");
-        stegoAttackState = new StegoAttackState(this, "attackState");
+        stegoChargeState = new StegoChargeState(this, "charge");
+        stegoAttackState = new StegoAttackState(this, "attack");
+        damagedState = new DamagedState(this, "damaged");
 
-        currentState = patrolState;
+        currentState = patrolState; 
         currentState.Enter();
     }
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        currentHealth = stats.maxHealth;
     }
 
     private void Update()
@@ -65,9 +69,8 @@ public class StegoEnemy : MonoBehaviour
     {
         RaycastHit2D hit = Physics2D.Raycast(ledgeDetector.position, Vector2.down, stats.cliffCheckDistance, groundLayer);
         RaycastHit2D wallhit = Physics2D.Raycast(ledgeDetector.position, Vector2.right, stats.wallDistance, groundLayer);
-        //RaycastHit2D stegohit = Physics2D.Raycast(stegoDetector.position, Vector2.right, stats.enemyDistance, enemyLayer);
 
-        if (hit.collider == null || wallhit.collider == true /*|| (stegohit == true && stegohit.collider == !this)*/)
+        if (hit.collider == null || wallhit.collider == true)
         {
             return true;
         }
@@ -121,5 +124,16 @@ public class StegoEnemy : MonoBehaviour
         currentState.AnimationAttackTrigger();
 
     }
+
+    public void Damage(float damageAmount){ }
+
+    public void Damage(float damageAmount, float KBForce, Vector2 KBAngle)
+    {
+        damagedState.KBForce = KBForce;
+        damagedState.KBAngle = KBAngle;
+        SwitchState(damagedState);
+        currentHealth -= damageAmount;
+    }
+
     #endregion
 }

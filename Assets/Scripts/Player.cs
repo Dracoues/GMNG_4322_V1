@@ -2,12 +2,15 @@ using System.Collections;
 using System.Xml;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 //using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class Player : MonoBehaviour, IDamageable
 {
+
+    public PlayerInput playerInput;
 
     public float health = 100;
     public int oil = 0;
@@ -19,6 +22,12 @@ public class Player : MonoBehaviour, IDamageable
 
     public Image HealthImage;
     public Image OilImage;
+
+    [Header("Attack Settings")]
+    public int damage;
+    public float attackRadius = .5f;
+    public Transform attackPoint;
+    public LayerMask enemyLayer, stegoLayer;
 
     public int extraJumpsValue = 1;
     private int extraJumps;
@@ -39,7 +48,6 @@ public class Player : MonoBehaviour, IDamageable
     private Animator animator;
 
     private SpriteRenderer spriteRenderer;
-    //private DamageFlash damageFlash;
 
 
     void Start()
@@ -88,6 +96,8 @@ public class Player : MonoBehaviour, IDamageable
             }
             
         }
+
+        
 
         SetAnimation(moveInput);
 
@@ -154,4 +164,21 @@ public class Player : MonoBehaviour, IDamageable
         StartCoroutine(BlinkRed());
         health -= damageAmount;
     }
+
+    public void OnAttack(InputValue value)
+    {
+        Debug.Log("Player Attacked");
+        //animator.Play("Player_Attack");
+        
+        Collider2D enemy = Physics2D.OverlapCircle(attackPoint.position, attackRadius, enemyLayer);
+
+        IDamageable damageable = enemy.GetComponent<IDamageable>();
+
+        if (damageable != null)
+            damageable.Damage(damage, 5, new Vector2(1,1));
+        animator.SetBool("Player_Attacl", false);
+
+    }
+
+    public void Damage(float damageAmount, float KBForce, Vector2 KBAngle) { }
 }

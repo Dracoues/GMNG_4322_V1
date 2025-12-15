@@ -485,6 +485,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 497617967}
+  - component: {fileID: 497617974}
   - component: {fileID: 497617966}
   - component: {fileID: 497617965}
   - component: {fileID: 497617970}
@@ -597,6 +598,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 293139680}
+  - {fileID: 1831183229}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &497617970
@@ -611,6 +613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ca54f96d6759e4d86265f7cda5fed6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
+  playerInput: {fileID: 497617974}
   health: 100
   oil: 0
   moveSpeed: 8
@@ -622,6 +625,15 @@ MonoBehaviour:
     m_Bits: 4096
   HealthImage: {fileID: 1895945589}
   OilImage: {fileID: 1892516045}
+  damage: 5
+  attackRadius: 0.5
+  attackPoint: {fileID: 1831183229}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  stegoLayer:
+    serializedVersion: 2
+    m_Bits: 256
   extraJumpsValue: 1
   JumpClip: {fileID: 8300000, guid: 2000206d38e28664598aab733f467df0, type: 3}
   perVolume: 25
@@ -781,6 +793,36 @@ CapsuleCollider2D:
   m_Offset: {x: 0.017486453, y: 0.039934665}
   m_Size: {x: 1.5875859, y: 2.0774517}
   m_Direction: 0
+--- !u!114 &497617974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497617964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
+  m_Actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: 
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1213,7 +1255,7 @@ Rigidbody2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 384
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -1268,9 +1310,13 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128
+  stegoLayer:
+    serializedVersion: 2
+    m_Bits: 256
   facingDirection: 1
   stateTime: 0
   stats: {fileID: 11400000, guid: 6996d5e271821ad49ad5a8e47ea3a69b, type: 2}
+  currentHealth: 0
   stegoCounter: 0
 --- !u!1 &619394800
 GameObject:
@@ -9871,6 +9917,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1505195532}
   m_CullTransparentMesh: 1
+--- !u!1 &1831183228
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1831183229}
+  m_Layer: 6
+  m_Name: Attack Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1831183229
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831183228}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.6, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 497617967}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1833339404
 GameObject:
   m_ObjectHideFlags: 0

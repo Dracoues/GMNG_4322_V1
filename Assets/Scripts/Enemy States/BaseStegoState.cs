@@ -20,7 +20,7 @@ public class StegoBaseState
 
     public virtual void Exit() 
     {
-        stego.anim.SetBool(animationName, true);
+        stego.anim.SetBool(animationName, false);
     }
 
     public virtual void LogicUpdate() { }
@@ -28,8 +28,8 @@ public class StegoBaseState
 
     public virtual void PhysicsUpdate() { }
 
-    public virtual void AnimationFinishedTigger(){ }
-    public virtual void AnimationAttackTrigger(){ }
+    public virtual void AnimationFinishedTigger() { }
+    public virtual void AnimationAttackTrigger() { }
 
 
 }

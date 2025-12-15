@@ -11,11 +11,13 @@ public class StegoChargeState : StegoBaseState
     public override void Enter()
     {
         base.Enter();
+        Debug.Log("Entered Charge");
     }
 
     public override void Exit()
     {
         base.Exit();
+        Debug.Log("Exited Charge");
     }
 
     public override void LogicUpdate()

@@ -10,11 +10,14 @@ public class PlayerDetectedState : StegoBaseState
     public override void Enter()
     {
         base.Enter();
+        Debug.Log("Entered PlayerDetected");
     }
 
     public override void Exit()
     {
-       // stego.rb.linearVelocity = Vector2.zero;
+        base.Exit();
+        Debug.Log("Exited PlayerDetected");
+        // stego.rb.linearVelocity = Vector2.zero;
     }
     public override void LogicUpdate()
     {

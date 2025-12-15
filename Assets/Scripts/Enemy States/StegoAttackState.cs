@@ -11,13 +11,14 @@ public class StegoAttackState : StegoBaseState
     {
         base.Enter();
 
-
+        Debug.Log("Entered Attack");
 
     }
 
     public override void Exit()
     {
         base.Exit();
+        Debug.Log("Exited Attack");
     }
 
     public override void LogicUpdate()
