@@ -33,8 +33,7 @@ public class StegoChargeState : StegoBaseState
         {
             if (stego.CheckForPlayer())
             {
-                //stego.SwitchState(stego.playerDetectedState);
-
+                //stego.SwitchState(stego.stegoPlayerDetectedState);
             }
             else
                 stego.SwitchState(stego.patrolState);
