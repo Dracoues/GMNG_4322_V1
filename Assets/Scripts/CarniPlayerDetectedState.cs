@@ -16,7 +16,7 @@ public class CarniPlayerDetectedState : CarniBaseState
 
         base.Enter();
 
-        Debug.Log("Entered PlayerDetected");
+        UnityEngine.Debug.Log("Entered PlayerDetected");
 
     }
 
@@ -28,7 +28,7 @@ public class CarniPlayerDetectedState : CarniBaseState
 
         base.Exit();
 
-        Debug.Log("Exited PlayerDetected");
+        UnityEngine.Debug.Log("Exited PlayerDetected");
 
         // carni.rb.linearVelocity = Vector2.zero;
 
@@ -50,7 +50,7 @@ public class CarniPlayerDetectedState : CarniBaseState
 
         {
 
-            if (Time.time >= carni.stateTime + carni.stats.playerDetectedWaitTime)
+            if (UnityEngine.Time.time >= carni.stateTime + carni.stats.playerDetectedWaitTime)
 
                 carni.SwitchState(carni.carniChargeState);
 

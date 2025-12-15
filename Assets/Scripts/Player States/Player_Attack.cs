@@ -23,6 +23,7 @@ public class Player_Attack : Player_Base
     public override void Update()
     {
         base.Update();
+
     }
     
     public override void AttackAnimationFinished()
