@@ -12,7 +12,7 @@ public class CarniEnemy : MonoBehaviour, IDamageable
     public CarniBaseState currentState;
 
     public PatrolState patrolState;
-    public PlayerDetectedState playerDetectedState;
+    public CarniPlayerDetectedState carniplayerDetectedState;
     public CarniChargeState carniChargeState;
     public CarniAttackState carniAttackState;
     public DamagedState damagedState;
@@ -42,7 +42,7 @@ public class CarniEnemy : MonoBehaviour, IDamageable
 
     {
         patrolState = new PatrolState(this, "patrol");
-        playerDetectedState = new PlayerDetectedState(this, "playerDetected");
+        carniplayerDetectedState = new CarniPlayerDetectedState(this, "playerDetected");
         carniChargeState = new CarniChargeState(this, "charge");
         carniAttackState = new CarniAttackState(this, "attack");
         damagedState = new DamagedState(this, "damaged");
