@@ -27,20 +27,24 @@ public class StegoEnemy : MonoBehaviour, IDamageable
     public EnemyStats stats;
     public float currentHealth;
 
-    public float stegoCounter;
+    public StegoDetectionScript stegoDetector;
+    
+    //public float stegoCounter;
     
 
     #endregion
 
     #region Unity Callbacks
 
-    private void Awake()
+    private void Awake() //walkign around
     {
         patrolState = new PatrolState(this, "patrol");
         //playerDetectedState = new PlayerDetectedState(this, "playerDetected");
         stegoChargeState = new StegoChargeState(this, "charge");
         stegoAttackState = new StegoAttackState(this, "attack");
         damagedState = new StegoDamagedState(this, "damaged");
+        stegoDetector = GetComponent<StegoDetectionScript>();
+
 
         currentState = patrolState; 
         currentState.Enter();
@@ -65,7 +69,7 @@ public class StegoEnemy : MonoBehaviour, IDamageable
     #endregion
 
     #region Checks
-    public bool CheckLedgesAndWallsAndStegos()
+    public bool CheckLedgesAndWallsAndStegos() //checks bounds
     {
         RaycastHit2D hit = Physics2D.Raycast(ledgeDetector.position, Vector2.down, stats.cliffCheckDistance, groundLayer);
         RaycastHit2D wallhit = Physics2D.Raycast(ledgeDetector.position, Vector2.right, stats.wallDistance, groundLayer);
@@ -79,7 +83,7 @@ public class StegoEnemy : MonoBehaviour, IDamageable
 
     }
 
-    public bool CheckForPlayer()
+    public bool CheckForPlayer() //checks player
     {
         RaycastHit2D hitPlayer = Physics2D.Raycast(ledgeDetector.position, facingDirection == 1 ? Vector2.right : Vector2.left, stats.playerDetectDistance, playerLayer);
 
@@ -91,7 +95,7 @@ public class StegoEnemy : MonoBehaviour, IDamageable
             return false;
     }
 
-    public bool CheckForMeleeTarget()
+    public bool CheckForMeleeTarget() //checks for target to hit
     {
         RaycastHit2D hitMeleeTarget = Physics2D.Raycast(ledgeDetector.position, facingDirection == 1 ? Vector2.right : Vector2.left, stats.meleeDetectDistance, playerLayer);
 
@@ -107,7 +111,7 @@ public class StegoEnemy : MonoBehaviour, IDamageable
 
     #region Other Functions
 
-    public void SwitchState(StegoBaseState newState)
+    public void SwitchState(StegoBaseState newState) //state swaps
     {
         currentState.Exit();
         currentState = newState;
