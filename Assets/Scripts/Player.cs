@@ -10,6 +10,13 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour, IDamageable
 {
 
+    public Player_Base currentState;
+
+    [Header("States")]
+    public Player_Idle idleState;
+    public Player_Jump jumpState;
+    public Player_Move moveState;
+
     public PlayerInput playerInput;
 
     public float health = 100;
@@ -29,26 +36,37 @@ public class Player : MonoBehaviour, IDamageable
     public Transform attackPoint;
     public LayerMask enemyLayer, stegoLayer;
 
-    public int extraJumpsValue = 1;
-    private int extraJumps;
+    [Header("Inputs")]
+    public Vector2 moveInput;
+    public bool walkPressed;
+    public bool jumpPressed;
 
-    private TextMeshProUGUI healthText;
+    public int extraJumpsValue = 1;
+    public int extraJumps;
 
     public AudioClip JumpClip;
     public float perVolume;
-
-    private Rigidbody2D rb;
-    private bool isGrounded;
+    
+    public bool isGrounded;
 
     private float horizontal;
-    private bool isFaceingRight = true;
+    public int isFaceingRight = 1;
 
+    [Header("Components")]
+    public Animator animator;
+    public Rigidbody2D rb;
     private AudioSource audiosource;
-
-    private Animator animator;
-
     private SpriteRenderer spriteRenderer;
+    private TextMeshProUGUI healthText;
 
+
+
+    private void Awake()
+    {
+        idleState = new Player_Idle(this);
+        jumpState = new Player_Jump(this);
+        moveState = new Player_Move(this);
+    }
 
     void Start()
     {
@@ -57,13 +75,16 @@ public class Player : MonoBehaviour, IDamageable
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         healthText = GameObject.FindWithTag("HealthText").GetComponent<TextMeshProUGUI>();
-        //damageFlash = GetComponent<DamageFlash>();
+
+        ChangeState(idleState);
 
         extraJumps = extraJumpsValue;
     }
 
     void Update()
     {
+        currentState.Update();
+        Flip();
 
         if (health <= 0)
         {
@@ -71,38 +92,7 @@ public class Player : MonoBehaviour, IDamageable
         }
 
         horizontal = Input.GetAxisRaw("Horizontal");
-
-        // allows player movement
-        float moveInput = Input.GetAxis("Horizontal");
-        rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
-
-        if(isGrounded)
-        {
-            extraJumps = extraJumpsValue;
-        }
-
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            if (isGrounded)
-            {
-                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-                PlaySFX(JumpClip);
-            }
-            else if(extraJumps>0)
-            {
-                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-                extraJumps--;
-                PlaySFX(JumpClip);
-            }
-            
-        }
-
         
-
-        SetAnimation(moveInput);
-
-        Flip();
-
         HealthImage.fillAmount = health / 100f;
         healthText.text = health.ToString();
 
@@ -111,7 +101,17 @@ public class Player : MonoBehaviour, IDamageable
 
     private void FixedUpdate()
     {
+        currentState.FixedUpdate();
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+    }
+
+    public void ChangeState(Player_Base newstate)
+    {
+        if(currentState != null)
+         currentState.Exit();
+
+        currentState = newstate;
+        currentState.Enter();
     }
 
     public void PlaySFX(AudioClip audioClip)
@@ -121,29 +121,20 @@ public class Player : MonoBehaviour, IDamageable
         audiosource.Play();
     }
 
-    private void SetAnimation(float moveInput)
-    {
-            if(moveInput == 0)
-            {
-                animator.Play("Player_Idle");
-            }
-            else
-            {
-                animator.Play("Player_Walk");
-            }
-
-    }
 
     private void Flip()
     {
 
-        if (isFaceingRight && horizontal < 0f || !isFaceingRight && horizontal > 0f)
+        if (moveInput.x >0.1f)
         {
-            isFaceingRight = !isFaceingRight;
-            Vector3 localScale = transform.localScale;
-            localScale.x *= -1f;
-            transform.localScale = localScale;
+            isFaceingRight = 1;
         }
+        else if(moveInput.x < -0.1f)
+        {
+            isFaceingRight = -1;
+        }
+
+        transform.localScale = new Vector3(isFaceingRight, 1, 1);
 
     }
 
@@ -179,6 +170,12 @@ public class Player : MonoBehaviour, IDamageable
         animator.SetBool("Player_Attacl", false);
 
     }
+
+    public void OnMove(InputValue value)
+    {
+        moveInput = value.Get<Vector2>();
+    }
+
 
     public void Damage(float damageAmount, float KBForce, Vector2 KBAngle) { }
 }
