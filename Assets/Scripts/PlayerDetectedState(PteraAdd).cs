@@ -1,6 +1,6 @@
 using UnityEngine;
 
-
+//stego
 
 public class PlayerDetectedState : StegoBaseState
 
@@ -72,6 +72,10 @@ public class PlayerDetectedState : StegoBaseState
 
 }
 
+//stego end
+
+//carni
+
 public class PlayerDetectedState : CarniBaseState
 
 {
@@ -141,6 +145,10 @@ public class PlayerDetectedState : CarniBaseState
     }
 
 }
+
+//carni end
+
+//ptera
 
 public class PlayerDetectedState : PteraBaseState
 
@@ -213,4 +221,4 @@ public class PlayerDetectedState : PteraBaseState
     }
 
 }
-
+//ptera end
