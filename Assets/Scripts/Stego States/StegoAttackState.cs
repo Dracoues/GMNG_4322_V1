@@ -29,6 +29,12 @@ public class StegoAttackState : StegoBaseState
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
+
+        if (stego.CheckForMeleeTarget() && stego.detector.StegoAggro())
+        {
+        stego.SwitchState(stego.stegoAttackState);
+        }
+
     }
 
     public override void AnimationAttackTrigger()
