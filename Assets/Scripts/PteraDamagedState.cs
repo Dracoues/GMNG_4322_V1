@@ -2,7 +2,7 @@ using UnityEngine;
 
 
 
-public class DamagedState : PteraBaseState
+public class PteraDamagedState : PteraBaseState
 
 {
 
