@@ -4,11 +4,11 @@ using UnityEngine;
 
 
 
-public class PteraAttackState : pteraBaseState
+public class PteraAttackState : PteraBaseState
 
 {
 
-    public PteraAttackState(pteraEnemy ptera, string animationName) : base(ptera, animationName)
+    public PteraAttackState(PteraEnemy ptera, string animationName) : base(ptera, animationName)
 
     {
 
@@ -26,7 +26,7 @@ public class PteraAttackState : pteraBaseState
 
 
 
-        Debug.Log("Entered Attack");
+        //Debug.Log("Entered Attack");
 
 
 
@@ -40,7 +40,7 @@ public class PteraAttackState : pteraBaseState
 
         base.Exit();
 
-        Debug.Log("Exited Attack");
+      //  Debug.Log("Exited Attack");
 
     }
 
@@ -88,7 +88,7 @@ public class PteraAttackState : pteraBaseState
 
             {
 
-                hitCollider.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(ptera.stats.knockbackAngle.x * ptera.facingDirection,
+                hitCollider.GetComponent<Rigidbody2D>().linearVelocity = new UnityEngine.Vector2(ptera.stats.knockbackAngle.x * ptera.facingDirection,
 
                     ptera.stats.knockbackAngle.y) * ptera.stats.knockbackForce;
 

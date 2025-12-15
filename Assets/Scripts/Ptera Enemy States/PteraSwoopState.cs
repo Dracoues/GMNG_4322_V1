@@ -5,11 +5,11 @@ using UnityEngine;
 
 
 
-public class pteraChargeState : pteraBaseState
+public class PteraSwoopState : PteraBaseState
 
 {
 
-    public pteraChargeState(pteraEnemy ptera, string animationName) : base(ptera, animationName)
+    public PteraSwoopState(PteraEnemy ptera, string animationName) : base(ptera, animationName)
 
     {
 
@@ -25,7 +25,7 @@ public class pteraChargeState : pteraBaseState
 
         base.Enter();
 
-        Debug.Log("Entered Charge");
+        //Debug.Log("Entered Charge");
 
     }
 
@@ -37,7 +37,7 @@ public class pteraChargeState : pteraBaseState
 
         base.Exit();
 
-        Debug.Log("Exited Charge");
+       // Debug.Log("Exited Charge");
 
     }
 
@@ -66,8 +66,10 @@ public class pteraChargeState : pteraBaseState
         {
 
             if (ptera.CheckForPlayer())
+            {
+                //ptera.SwitchState(ptera.playerDetectedState);
 
-                ptera.SwitchState(ptera.playerDetectedState);
+            }
 
             else
 
@@ -92,13 +94,12 @@ public class pteraChargeState : pteraBaseState
     }
 
 
-    void Swoop
-
+    void Swoop()
     {
-
-        ptera.rb.linearVelocity = new Vector2(ptera.stats.swoopSpeed* ptera.facingDirection, ptera.rb.linearVelocityY);
-
-}
+        ptera.rb.linearVelocity = new UnityEngine.Vector2(ptera.swoopSpeed * ptera.facingDirection, ptera.rb.linearVelocityY);
+    }
 
 }
+
+
 

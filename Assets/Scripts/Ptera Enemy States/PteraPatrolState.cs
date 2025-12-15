@@ -6,6 +6,7 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 
 
 
+
 public class PteraPatrolState : PteraBaseState
 
 {
@@ -20,7 +21,7 @@ public class PteraPatrolState : PteraBaseState
 
         base.Enter();
 
-        Debug.Log("Entered Patrol");
+        UnityEngine.Debug.Log("Entered Patrol");
 
     }
 
@@ -29,7 +30,7 @@ public class PteraPatrolState : PteraBaseState
     {
         base.Exit();
 
-        Debug.Log("Exited Patrol");
+        UnityEngine.Debug.Log("Exited Patrol");
 
     }
 
@@ -45,11 +46,17 @@ public class PteraPatrolState : PteraBaseState
 
         if (ptera.CheckForPlayer())
 
-            ptera.SwitchState(ptera.playerDetectedState);
+        {
+            //ptera.SwitchState(ptera.playerDetectedState);
+
+        }
 
 
 
         if (ptera.CheckLedgesAndWalls())
+        {
+
+        }
 
             //head back up
 
@@ -68,11 +75,11 @@ public class PteraPatrolState : PteraBaseState
 
         if (ptera.facingDirection == 1)
 
-            ptera.rb.linearVelocity = new Vector2(ptera.stats.speed, ptera.rb.linearVelocityY);
+            ptera.rb.linearVelocity = new UnityEngine.Vector2(ptera.stats.speed, ptera.rb.linearVelocityY);
 
         else
 
-            ptera.rb.linearVelocity = new Vector2(-ptera.stats.speed, ptera.rb.linearVelocityY);
+            ptera.rb.linearVelocity = new UnityEngine.Vector2(-ptera.stats.speed, ptera.rb.linearVelocityY);
 
     }
 

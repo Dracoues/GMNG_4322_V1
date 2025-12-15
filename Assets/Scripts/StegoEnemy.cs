@@ -12,7 +12,7 @@ public class StegoEnemy : MonoBehaviour, IDamageable
     public PlayerDetectedState playerDetectedState;
     public StegoChargeState stegoChargeState;
     public StegoAttackState stegoAttackState;
-    public DamagedState damagedState;
+    public StegoDamagedState damagedState;
 
     public Animator anim;
     public Rigidbody2D rb;
@@ -37,10 +37,10 @@ public class StegoEnemy : MonoBehaviour, IDamageable
     private void Awake()
     {
         patrolState = new PatrolState(this, "patrol");
-        playerDetectedState = new PlayerDetectedState(this, "playerDetected");
+        //playerDetectedState = new PlayerDetectedState(this, "playerDetected");
         stegoChargeState = new StegoChargeState(this, "charge");
         stegoAttackState = new StegoAttackState(this, "attack");
-        damagedState = new DamagedState(this, "damaged");
+        damagedState = new StegoDamagedState(this, "damaged");
 
         currentState = patrolState; 
         currentState.Enter();

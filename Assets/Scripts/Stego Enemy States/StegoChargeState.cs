@@ -32,7 +32,10 @@ public class StegoChargeState : StegoBaseState
         if (Time.time >= stego.stateTime + stego.stats.chargeTime)
         {
             if (stego.CheckForPlayer())
-                stego.SwitchState(stego.playerDetectedState);
+            {
+                //stego.SwitchState(stego.playerDetectedState);
+
+            }
             else
                 stego.SwitchState(stego.patrolState);
         }

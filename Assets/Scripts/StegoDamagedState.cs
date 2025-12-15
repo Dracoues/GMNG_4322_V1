@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public class DamagedState : StegoBaseState
+public class StegoDamagedState : StegoBaseState
 {
     public float KBForce;
     public Vector2 KBAngle;
 
-    public DamagedState(StegoEnemy stego, string animationName) : base(stego, animationName)
+    public StegoDamagedState(StegoEnemy stego, string animationName) : base(stego, animationName)
     {
 
     }
