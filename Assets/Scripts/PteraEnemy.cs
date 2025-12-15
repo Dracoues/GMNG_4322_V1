@@ -18,7 +18,7 @@ public class PteraEnemy : MonoBehaviour, IDamageable
     public Animator anim;
     public Rigidbody2D rb;
     public Transform ledgeDetector;
-    public LayerMask groundLayer, playerLayer, damageableLayer, enemyLayer;
+    public LayerMask groundLayer, playerLayer, damageableLayer, enemyLayer, pteraLayer;
 
     public int facingDirection = 1;
     public float stateTime;         
