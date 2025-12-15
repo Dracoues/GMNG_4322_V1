@@ -5,11 +5,11 @@ using UnityEngine;
 
 
 
-public class pteraSwoopState : pteraBaseState
+public class PteraSwoopState : pteraBaseState
 
 {
 
-    public pteraSwoopState(pteraEnemy ptera, string animationName) : base(ptera, animationName)
+    public PteraSwoopState(pteraEnemy ptera, string animationName) : base(ptera, animationName)
 
     {
 
