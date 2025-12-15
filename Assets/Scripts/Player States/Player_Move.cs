@@ -13,16 +13,25 @@ public class Player_Move : Player_Base
     {
         base.Update();
 
-        if(JumpPressed)
+        if (AttackPressed)
+            player.ChangeState(player.attackState);
+
+        else if (JumpPressed)
         {
             player.ChangeState(player.jumpState);
+            Debug.Log("in player move jump check");
         }
-        else if(Mathf.Abs(MoveInput.x)<.1f)
+        else if(Mathf.Abs(MoveInput.x)<= 0.1f)
         {
+            Debug.Log("in player move to idle");
             player.ChangeState(player.idleState);
+            
         }
-
+        else
+        {
             animator.SetBool("isWalking", true);
+        }
+            
     }
 
     public override void FixedUpdate()

@@ -7,13 +7,17 @@ public class Player_Idle : Player_Base
     public override void Enter()
     {
         animator.SetBool("isIdle", true);
+        player.rb.linearVelocity= new Vector2(0,player.rb.linearVelocity.y);
     }
 
     public override void Update()
     {
         base.Update();
 
-        if(JumpPressed && player.isGrounded)
+        if(AttackPressed)
+           player.ChangeState(player.attackState);
+
+        else if (JumpPressed && player.isGrounded)
         {
             player.jumpPressed = false;
             player.ChangeState(player.jumpState);

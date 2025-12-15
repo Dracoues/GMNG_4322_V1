@@ -512,7 +512,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 1
+  m_LinearDamping: 0.05
   m_AngularDamping: 0.05
   m_GravityScale: 4
   m_Material: {fileID: 0}
@@ -637,8 +637,14 @@ MonoBehaviour:
   moveInput: {x: 0, y: 0}
   walkPressed: 0
   jumpPressed: 0
+  jumpReleased: 0
+  attackPressed: 0
   extraJumpsValue: 1
   extraJumps: 0
+  jumpCutMultiplier: 0.5
+  normalGravity: 4
+  fallGravity: 4
+  jumpGravity: 2
   JumpClip: {fileID: 8300000, guid: 2000206d38e28664598aab733f467df0, type: 3}
   perVolume: 25
   isGrounded: 0

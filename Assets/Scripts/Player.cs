@@ -16,6 +16,7 @@ public class Player : MonoBehaviour, IDamageable
     public Player_Idle idleState;
     public Player_Jump jumpState;
     public Player_Move moveState;
+    public Player_Attack attackState;
 
     public PlayerInput playerInput;
 
@@ -30,17 +31,14 @@ public class Player : MonoBehaviour, IDamageable
     public Image HealthImage;
     public Image OilImage;
 
-    [Header("Attack Settings")]
-    public int damage;
-    public float attackRadius = .5f;
-    public Transform attackPoint;
-    public LayerMask enemyLayer, stegoLayer;
+
 
     [Header("Inputs")]
     public Vector2 moveInput;
     public bool walkPressed;
     public bool jumpPressed;
     public bool jumpReleased;
+    public bool attackPressed;
 
     public int extraJumpsValue = 1;
     public int extraJumps;
@@ -71,6 +69,7 @@ public class Player : MonoBehaviour, IDamageable
         idleState = new Player_Idle(this);
         jumpState = new Player_Jump(this);
         moveState = new Player_Move(this);
+        attackState = new Player_Attack(this);
     }
 
     void Start()
@@ -177,24 +176,23 @@ public class Player : MonoBehaviour, IDamageable
         health -= damageAmount;
     }
 
+    public void AttackAnimationFinished()
+    {
+        currentState.AttackAnimationFinished();
+    }
+
     public void OnAttack(InputValue value)
     {
         Debug.Log("Player Attacked");
-        //animator.Play("Player_Attack");
-        
-        Collider2D enemy = Physics2D.OverlapCircle(attackPoint.position, attackRadius, enemyLayer);
-
-        IDamageable damageable = enemy.GetComponent<IDamageable>();
-
-        if (damageable != null)
-            damageable.Damage(damage, 5, new Vector2(1,1));
-        animator.SetBool("Player_Attacl", false);
+     
+        attackPressed = value.isPressed;
 
     }
 
     public void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
+        
     }
     public void OnJump(InputValue value)
     {
