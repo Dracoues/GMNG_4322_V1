@@ -29,7 +29,7 @@ public class PteraEnemy : MonoBehaviour, IDamageable
     #endregion
 
     #region Callbacks
-    private void Flyer()
+    private void Ptera()
     {
         patrolState = new PatrolState(this, "patrol");
         playerDetectedState = new PlayerDetectedState(this, "playerDetected");
