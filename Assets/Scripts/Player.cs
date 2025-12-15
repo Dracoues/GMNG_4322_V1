@@ -92,8 +92,6 @@ public class Player : MonoBehaviour, IDamageable
         {
             Die();
         }
-
-        horizontal = Input.GetAxisRaw("Horizontal");
         
         HealthImage.fillAmount = health / 100f;
         healthText.text = health.ToString();

@@ -14,7 +14,7 @@ public class Combat : MonoBehaviour
     public bool CanAttack => Time.time > attackCooldown;
     private float nextAttackTime;
 
-    public void AttackAnimationFinished()
+    public void CombatAttackAnimationFinished()
     {
         player.AttackAnimationFinished();
     }
