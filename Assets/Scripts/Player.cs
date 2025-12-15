@@ -40,9 +40,14 @@ public class Player : MonoBehaviour, IDamageable
     public Vector2 moveInput;
     public bool walkPressed;
     public bool jumpPressed;
+    public bool jumpReleased;
 
     public int extraJumpsValue = 1;
     public int extraJumps;
+    public float jumpCutMultiplier = .5f;
+    public float normalGravity;
+    public float fallGravity;
+    public float jumpGravity;
 
     public AudioClip JumpClip;
     public float perVolume;
@@ -77,8 +82,6 @@ public class Player : MonoBehaviour, IDamageable
         healthText = GameObject.FindWithTag("HealthText").GetComponent<TextMeshProUGUI>();
 
         ChangeState(idleState);
-
-        extraJumps = extraJumpsValue;
     }
 
     void Update()
@@ -103,6 +106,24 @@ public class Player : MonoBehaviour, IDamageable
     {
         currentState.FixedUpdate();
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+    }
+
+    public void ApplyVariableGravity()
+    {
+        if(rb.linearVelocity.y < -0.1f)
+        {
+            rb.gravityScale = fallGravity;
+        }
+        else if(rb.linearVelocity.y > 0.1f)
+        {
+            rb.gravityScale = jumpGravity;
+        }
+        else
+        {
+            rb.gravityScale = normalGravity;
+        }
+           
+
     }
 
     public void ChangeState(Player_Base newstate)
@@ -177,7 +198,15 @@ public class Player : MonoBehaviour, IDamageable
     }
     public void OnJump(InputValue value)
     {
-        
+        if(value.isPressed)
+        {
+            jumpPressed = true;
+            jumpReleased = false;
+        }
+        else
+        {
+            jumpPressed = false;
+        }
     }
 
 
