@@ -4,11 +4,11 @@ using UnityEngine;
 
 
 
-public class PteraAttackState : pteraBaseState
+public class PteraAttackState : PteraBaseState
 
 {
 
-    public PteraAttackState(pteraEnemy ptera, string animationName) : base(ptera, animationName)
+    public PteraAttackState(PteraEnemy ptera, string animationName) : base(ptera, animationName)
 
     {
 
