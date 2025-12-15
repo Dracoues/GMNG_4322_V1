@@ -18,14 +18,14 @@ public class CarniChargeState : CarniBaseState
 
     {
         base.Enter();
-        Debug.Log("Entered Charge");
+        UnityEngine.Debug.Log("Entered Charge");
     }
 
     public override void Exit()
 
     {
         base.Exit();
-        Debug.Log("Exited Charge");
+        UnityEngine.Debug.Log("Exited Charge");
     }
 
     public override void LogicUpdate()
@@ -57,10 +57,10 @@ public class CarniChargeState : CarniBaseState
 
     public bool CheckForCarnisForAggro()
     {
-        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(carni.stegoDetector.position, carni.stats.carniDetectDistance, carni.carniTag);
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(carni.stegoDetector.position, carni.stats.stegoDetectDistance, carni.carniTag);
 
         carni.stegoCounter = hitColliders.Length;
-        Debug.Log(carni.stegoCounter);
+        UnityEngine.Debug.Log(carni.stegoCounter);
 
         return carni.stegoCounter <= 2;
     }

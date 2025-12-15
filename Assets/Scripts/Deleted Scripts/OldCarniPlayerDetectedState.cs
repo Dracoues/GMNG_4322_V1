@@ -1,6 +1,8 @@
+/*using UnityEngine;
+
 //carni
 
-public class CarniPlayerDetectedState : CarniBaseState
+public class OldCarniPlayerDetectedState : CarniBaseState
 
 {
 
@@ -16,7 +18,7 @@ public class CarniPlayerDetectedState : CarniBaseState
 
         base.Enter();
 
-        UnityEngine.Debug.Log("Entered PlayerDetected");
+        Debug.Log("Entered PlayerDetected");
 
     }
 
@@ -28,7 +30,7 @@ public class CarniPlayerDetectedState : CarniBaseState
 
         base.Exit();
 
-        UnityEngine.Debug.Log("Exited PlayerDetected");
+        Debug.Log("Exited PlayerDetected");
 
         // carni.rb.linearVelocity = Vector2.zero;
 
@@ -50,7 +52,7 @@ public class CarniPlayerDetectedState : CarniBaseState
 
         {
 
-            if (UnityEngine.Time.time >= carni.stateTime + carni.stats.playerDetectedWaitTime)
+            if (Time.time >= carni.stateTime + carni.stats.playerDetectedWaitTime)
 
                 carni.SwitchState(carni.carniChargeState);
 
@@ -71,3 +73,4 @@ public class CarniPlayerDetectedState : CarniBaseState
 }
 
 //carni end
+*/

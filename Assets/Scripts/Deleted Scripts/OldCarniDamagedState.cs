@@ -1,8 +1,8 @@
-using UnityEngine;
+/*using UnityEngine;
 
 
 
-public class PteraDamagedState : PteraBaseState
+public class OldCarniDamagedState : CarniBaseState
 
 {
 
@@ -97,4 +97,4 @@ public class PteraDamagedState : PteraBaseState
 
 
 }
-
+*/

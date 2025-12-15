@@ -54,7 +54,7 @@ public class CarniPatrolState : CarniBaseState
 
         if(carni.CheckForPlayer())
 
-            carni.SwitchState(carni.playerDetectedState);
+            carni.SwitchState(carni.carniplayerDetectedState);
 
 
 

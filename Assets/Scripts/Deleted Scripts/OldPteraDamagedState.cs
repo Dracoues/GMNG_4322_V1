@@ -1,8 +1,8 @@
-using UnityEngine;
+/*using UnityEngine;
 
 
 
-public class CarniDamagedState : CarniBaseState
+public class OldPteraDamagedState : PteraBaseState
 
 {
 
@@ -12,7 +12,7 @@ public class CarniDamagedState : CarniBaseState
 
 
 
-    public DamagedState(StegoEnemy stego, string animationName) : base(stego, animationName)
+    public PteraDamagedState(PteraEnemy ptera, string animationName) : base(ptera, animationName)
 
     {
 
@@ -98,3 +98,4 @@ public class CarniDamagedState : CarniBaseState
 
 }
 
+*/

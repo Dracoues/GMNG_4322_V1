@@ -2,7 +2,7 @@ using UnityEngine;
 
 
 
-public class PteraDamagedState : StegoBaseState
+public class PteraDamagedState : PteraBaseState
 
 {
 
@@ -12,7 +12,7 @@ public class PteraDamagedState : StegoBaseState
 
 
 
-    public PteraDamagedState(StegoEnemy stego, string animationName) : base(stego, animationName)
+    public PteraDamagedState(PteraEnemy ptera, string animationName) : base(ptera, animationName)
 
     {
 
@@ -90,7 +90,7 @@ public class PteraDamagedState : StegoBaseState
 
     {
 
-        stego.rb.linearVelocity = KBAngle * KBForce;
+        ptera.rb.linearVelocity = KBAngle * KBForce;
 
     }
 

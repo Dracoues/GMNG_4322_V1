@@ -11,11 +11,11 @@ public class CarniEnemy : MonoBehaviour, IDamageable
 
     public CarniBaseState currentState;
 
-    public PatrolState patrolState;
+    public CarniPatrolState patrolState;
     public CarniPlayerDetectedState carniplayerDetectedState;
     public CarniChargeState carniChargeState;
     public CarniAttackState carniAttackState;
-    public DamagedState damagedState;
+    public CarniDamagedState damagedState;
 
     public Animator anim;
     public Rigidbody2D rb;
@@ -41,11 +41,11 @@ public class CarniEnemy : MonoBehaviour, IDamageable
     private void Awake()
 
     {
-        patrolState = new PatrolState(this, "patrol");
+        patrolState = new CarniPatrolState(this, "patrol");
         carniplayerDetectedState = new CarniPlayerDetectedState(this, "playerDetected");
         carniChargeState = new CarniChargeState(this, "charge");
         carniAttackState = new CarniAttackState(this, "attack");
-        damagedState = new DamagedState(this, "damaged");
+        damagedState = new CarniDamagedState(this, "damaged");
 
         currentState = patrolState; 
         currentState.Enter();

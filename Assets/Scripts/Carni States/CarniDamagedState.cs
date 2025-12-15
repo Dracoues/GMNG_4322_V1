@@ -1,8 +1,6 @@
 using UnityEngine;
 
-
-
-public class CarniDamagedState : StegoBaseState
+public class CarniDamagedState : CarniBaseState
 
 {
 
@@ -12,11 +10,8 @@ public class CarniDamagedState : StegoBaseState
 
 
 
-    public CarniDamagedState(StegoEnemy stego, string animationName) : base(stego, animationName)
-
+    public CarniDamagedState(CarniEnemy carni, string animationName) : base(carni, animationName)
     {
-
-
 
     }
 
@@ -98,7 +93,7 @@ public class CarniDamagedState : StegoBaseState
 
     {
 
-        stego.rb.linearVelocity = KBAngle * KBForce;
+        carni.rb.linearVelocity = KBAngle * KBForce;
 
     }
 
