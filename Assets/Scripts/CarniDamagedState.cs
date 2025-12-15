@@ -2,7 +2,7 @@ using UnityEngine;
 
 
 
-public class DamagedState : CarniBaseState
+public class CarniDamagedState : CarniBaseState
 
 {
 
