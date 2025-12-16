@@ -10,57 +10,42 @@ public class PteraAttackState : PteraBaseState
 
     public PteraAttackState(PteraEnemy ptera, string animationName) : base(ptera, animationName)
 
-    {
-
-
-
-    }
-
-
+    {  }
 
     public override void Enter()
 
-    {
-
-        base.Enter();
-
-
-
-        //Debug.Log("Entered Attack");
-
-
-
+    { 
+      base.Enter();
+      //start cooldown
+      ptera.lastAttackTime = Time.time;
+      //stop movement
+      ptera.rb.linearVelocity = Vector2.zero;
+      //trigger animation
+      ptera.anim.SetTrigger("Attack");
+      Debug.Log("Entered Attack");
     }
-
-
 
     public override void Exit()
 
     {
-
         base.Exit();
-
-      //  Debug.Log("Exited Attack");
-
+        Debug.Log("Exited Attack");
     }
-
-
 
     public override void LogicUpdate()
 
-    {
-
-        base.LogicUpdate();
-
-    }
-
-
+    { base.LogicUpdate(); }
 
     public override void PhysicsUpdate()
 
     {
-
         base.PhysicsUpdate();
+
+        if (ptera.CheckForMeleeTarget())
+        {
+        ptera.SwitchState(ptera.pteraAttackState);
+        AnimationAttackTrigger();
+        }
 
     }
 
@@ -69,47 +54,30 @@ public class PteraAttackState : PteraBaseState
     public override void AnimationAttackTrigger()
 
     {
-
         base.AnimationAttackTrigger();
-
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(ptera.ledgeDetector.position, ptera.stats.meleeDetectDistance, ptera.damageableLayer);
-
-
 
         foreach (Collider2D hitCollider in hitColliders)
 
         {
-
             IDamageable damageable = hitCollider.GetComponent<IDamageable>();
-
-
 
             if ((damageable != null))
 
             {
-
-                hitCollider.GetComponent<Rigidbody2D>().linearVelocity = new UnityEngine.Vector2(ptera.stats.knockbackAngle.x * ptera.facingDirection,
-
-                    ptera.stats.knockbackAngle.y) * ptera.stats.knockbackForce;
-
+                hitCollider.GetComponent<Rigidbody2D>().linearVelocity = new UnityEngine.Vector2(ptera.stats.knockbackAngle.x * ptera.facingDirection, ptera.stats.knockbackAngle.y) * ptera.stats.knockbackForce;
                 damageable.Damage(ptera.stats.damageAmount);
-
             }
 
         }
 
     }
 
-
-
     public override void AnimationFinishedTigger()
 
     {
-
         base.AnimationFinishedTigger();
-
-        ptera.SwitchState(ptera.patrolState);
-
+        ptera.SwitchState(ptera.flyUpState);
     }
 
 
