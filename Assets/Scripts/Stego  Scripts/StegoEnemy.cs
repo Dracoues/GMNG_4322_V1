@@ -97,14 +97,21 @@ public class StegoEnemy : MonoBehaviour, IDamageable
 
     public bool CheckForMeleeTarget() //checks for target to hit
     {
+        UnityEngine.Debug.Log("in Check for Melee!");
         RaycastHit2D hitMeleeTarget = Physics2D.Raycast(ledgeDetector.position, facingDirection == 1 ? Vector2.right : Vector2.left, stats.meleeDetectDistance, playerLayer);
 
         if (hitMeleeTarget.collider == true)
         {
+            Debug.Log("Melee True!");
             return true;
         }
         else
+        {
+            Debug.Log("Melee False!");
             return false;
+
+        }
+            
     }
 
     #endregion

@@ -33,13 +33,14 @@ public class StegoChargeState : StegoBaseState
         {
             if (stego.CheckForPlayer())
             {
-                //stego.SwitchState(stego.stegoPlayerDetectedState);
+                stego.SwitchState(stego.playerDetectedState);
             }
             else
                 stego.SwitchState(stego.patrolState);
         }
         else
         {
+
             if(stego.CheckForMeleeTarget() && stego.stegoDetector.StegoAggro())
                 stego.SwitchState(stego.stegoAttackState);
             Charge();

@@ -583,7 +583,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -52.11, y: -3.63, z: -10}
+  m_LocalPosition: {x: -65.4, y: -4.25, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -732,7 +732,6 @@ GameObject:
   - component: {fileID: 613927428}
   - component: {fileID: 613927430}
   - component: {fileID: 613927432}
-  - component: {fileID: 613927433}
   - component: {fileID: 613927434}
   m_Layer: 7
   m_Name: Actual Enemy Stego
@@ -947,20 +946,6 @@ MonoBehaviour:
   stats: {fileID: 11400000, guid: eaf1020ca19f093489476ecf372c670d, type: 2}
   currentHealth: 0
   stegoDetector: {fileID: 613927434}
---- !u!114 &613927433
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 613927425}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a5c7ee040a204e46b057ccb39af08b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HealthPickup
-  health: 0
-  maxHealth: 20
 --- !u!114 &613927434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9803,7 +9788,7 @@ Transform:
   m_GameObject: {fileID: 1833339404}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -52.11, y: -3.63, z: -10}
+  m_LocalPosition: {x: -65.4, y: -4.25, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10267,11 +10252,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3843661789118347257, guid: f41a6e41a0eb7ba428b09472c3bc5743, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -52.11
+      value: -65.4
       objectReference: {fileID: 0}
     - target: {fileID: 3843661789118347257, guid: f41a6e41a0eb7ba428b09472c3bc5743, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.63
+      value: -4.25
       objectReference: {fileID: 0}
     - target: {fileID: 3843661789118347257, guid: f41a6e41a0eb7ba428b09472c3bc5743, type: 3}
       propertyPath: m_LocalPosition.z

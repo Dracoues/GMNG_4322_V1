@@ -18,8 +18,9 @@ public class StegoDetectionScript : MonoBehaviour
     
     public bool StegoAggro()
     {
+        UnityEngine.Debug.Log("in StegoAggro!");
         int count = stegoIndex();
-        UnityEngine.Debug.Log(count);
+        UnityEngine.Debug.Log("This is Stego count" + count);
         return count >= 2;
     }
     

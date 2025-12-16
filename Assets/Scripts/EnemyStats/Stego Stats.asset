@@ -15,7 +15,7 @@ MonoBehaviour:
   maxHealth: 20
   speed: 2
   cliffCheckDistance: 1.5
-  wallDistance: 0.2
+  wallDistance: 0.5
   enemyDistance: 0
   playerDetectDistance: 5
   detectedPauseTime: 1
