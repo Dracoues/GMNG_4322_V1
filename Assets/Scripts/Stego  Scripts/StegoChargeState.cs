@@ -41,7 +41,7 @@ public class StegoChargeState : StegoBaseState
         else
         {
 
-            if(stego.CheckForMeleeTarget() && stego.stegoDetector.StegoAggro())
+            if(stego.CheckForMeleeTarget() && stego.stegoDetector.StegoAggro() && stego.CanAttack())
                 stego.SwitchState(stego.stegoAttackState);
             Charge();
         }
