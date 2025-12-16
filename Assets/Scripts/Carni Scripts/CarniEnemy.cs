@@ -35,6 +35,9 @@ public class CarniEnemy : MonoBehaviour, IDamageable
     public float attackCooldown = 1.5f;
     public float lastAttackTime = -999f;
 
+    public float turnCooldown = 0.5f;
+    public float lastTurnTime = -999f;
+
     public float stegoCounter;
 
     #endregion
@@ -121,6 +124,9 @@ public class CarniEnemy : MonoBehaviour, IDamageable
 
     public bool CanAttack()
     { return Time.time >= lastAttackTime + attackCooldown; }
+
+    public bool CanTurn()
+    { return Time.time >= lastTurnTime + turnCooldown; }
 
     #endregion
 
