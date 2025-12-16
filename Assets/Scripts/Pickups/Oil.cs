@@ -23,8 +23,8 @@ public class Oil : MonoBehaviour
             oilText.text = player.oil.ToString();
             Destroy(gameObject);
 
-            //if (player.oil =< 100)
-
+            if (player.oil == 100)
+                Time.timeScale = 0;
         }
 
         
