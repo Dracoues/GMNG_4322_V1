@@ -28,7 +28,11 @@ public class StegoEnemy : MonoBehaviour, IDamageable
     public float currentHealth;
 
     public StegoDetectionScript stegoDetector;
-    
+
+
+    public float attackCooldown = 1.5f;   // time between attacks
+    public float lastAttackTime = -999f;  // ensures first attack is allowed
+
     //public float stegoCounter;
     
 
@@ -113,6 +117,9 @@ public class StegoEnemy : MonoBehaviour, IDamageable
         }
             
     }
+    public bool CanAttack()
+        { return Time.time >= lastAttackTime + attackCooldown; }
+
 
     #endregion
 
