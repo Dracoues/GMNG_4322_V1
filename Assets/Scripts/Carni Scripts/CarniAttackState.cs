@@ -38,7 +38,7 @@ public class CarniAttackState : CarniBaseState
     if (!carni.CheckForPlayer())
         {
         carni.SwitchState(carni.patrolState);
-        return
+            return;
         }
     }
 

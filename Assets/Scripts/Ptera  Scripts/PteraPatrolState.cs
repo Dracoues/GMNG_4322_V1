@@ -17,13 +17,13 @@ public class PteraPatrolState : PteraBaseState
     public override void Enter()
     {
         base.Enter();
-        UnityEngine.Debug.Log("Entered Patrol");
+        UnityEngine.Debug.Log("Entered Ptera Patrol");
     }
 
     public override void Exit()
     {
         base.Exit();
-        UnityEngine.Debug.Log("Exited Patrol");
+        UnityEngine.Debug.Log("Exited Ptera Patrol");
     }
 
     public override void LogicUpdate()

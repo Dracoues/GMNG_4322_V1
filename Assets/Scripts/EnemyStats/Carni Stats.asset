@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: Carni Stats
   m_EditorClassIdentifier: Assembly-CSharp::EnemyStats
   maxHealth: 20
-  speed: 2
+  flyUpSpeed: 0
+  returnHeight: 0
+  speed: 6
   cliffCheckDistance: 1.5
-  wallDistance: 1
+  wallDistance: 2
   enemyDistance: 0
   playerDetectDistance: 5
   detectedPauseTime: 1
