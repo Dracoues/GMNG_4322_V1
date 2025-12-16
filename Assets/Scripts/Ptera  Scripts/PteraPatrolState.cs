@@ -45,10 +45,10 @@ public class PteraPatrolState : PteraBaseState
         UnityEngine.Debug.Log("PhysicsUpdate running");
 
         if (ptera.facingDirection == 1)
-            ptera.rb.linearVelocity = new UnityEngine.Vector2(ptera.stats.speed, ptera.rb.linearVelocityY);
+            ptera.rb.velocity = new UnityEngine.Vector2(ptera.stats.speed, ptera.rb.velocityY);
 
         else
-            ptera.rb.linearVelocity = new UnityEngine.Vector2(-ptera.stats.speed, ptera.rb.linearVelocityY);
+            ptera.rb.velocity = new UnityEngine.Vector2(-ptera.stats.speed, ptera.rb.velocityY);
     }
 
     //public move back upward
