@@ -28,7 +28,7 @@ public class CarniPatrolState : CarniBaseState
     {   base.LogicUpdate();
 
         if(carni.CheckForPlayer())
-            carni.SwitchState(carni.carniplayerDetectedState);
+            carni.SwitchState(carni.carniPlayerDetectedState);
 
         if (carni.CheckLedgesAndWallsAndCarnis())
             Rotate();
