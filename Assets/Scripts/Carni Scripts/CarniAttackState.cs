@@ -32,7 +32,15 @@ public class CarniAttackState : CarniBaseState
 
     public override void LogicUpdate()
 
-    { base.LogicUpdate(); }
+    { base.LogicUpdate();
+
+    // if player is dead, stop attacking
+    if (!carni.CheckForPlayer())
+        {
+        carni.SwitchState(carni.patrolState);
+        return
+        }
+    }
 
     public override void PhysicsUpdate()
 
