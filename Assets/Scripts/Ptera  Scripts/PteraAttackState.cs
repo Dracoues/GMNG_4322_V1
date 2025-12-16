@@ -77,7 +77,7 @@ public class PteraAttackState : PteraBaseState
 
     {
         base.AnimationFinishedTigger();
-        ptera.SwitchState(ptera.patrolState);
+        ptera.SwitchState(ptera.flyUpState);
     }
 
 
