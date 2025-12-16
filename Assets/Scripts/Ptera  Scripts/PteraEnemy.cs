@@ -37,6 +37,9 @@ public class PteraEnemy : MonoBehaviour//, IDamageable
     #region Callbacks
     private void Awake()
     {
+        rb = GetComponent < Rigidbody2D>();
+        currentHealth = stats.maxHealth;
+        
         patrolState = new PteraPatrolState(this, "patrol");
         playerDetectedState = new PteraPlayerDetectedState(this, "playerDetected");
         pteraSwoopState = new PteraSwoopState(this, "swoop");
@@ -48,11 +51,11 @@ public class PteraEnemy : MonoBehaviour//, IDamageable
         currentState.Enter();
     }
 
-    private void Start()
+    /*private void Start()
     {
         rb = GetComponent < Rigidbody2D>();
         currentHealth = stats.maxHealth;
-    }
+    }*/
 
     private void Update()
     { currentState.LogicUpdate(); }
