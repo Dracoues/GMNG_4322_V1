@@ -30,8 +30,9 @@ public class CarniPatrolState : CarniBaseState
         if(carni.CheckForPlayer())
             carni.SwitchState(carni.carniplayerDetectedState);
 
-        if (carni.CheckLedgesAndWallsAndCarnis())
+        if (carni.CheckLedgesAndWallsAndCarnis() && carni.CanTurn())
             Rotate();
+            carni.lastTurnTime = Time.time;
     }
 
     public override void PhysicsUpdate()
