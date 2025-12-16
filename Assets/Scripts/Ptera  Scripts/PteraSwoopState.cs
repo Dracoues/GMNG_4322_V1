@@ -14,12 +14,12 @@ public class PteraSwoopState : PteraBaseState
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("Entered Swoop");
+        UnityEngine.Debug.Log("Entered Swoop");
     }
 
     public override void Exit()
     {   base.Exit();
-        Debug.Log("Exited Swoop");
+        UnityEngine.Debug.Log("Exited Swoop");
     }
 
     public override void LogicUpdate()

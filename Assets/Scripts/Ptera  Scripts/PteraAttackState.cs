@@ -19,17 +19,17 @@ public class PteraAttackState : PteraBaseState
       //start cooldown
       ptera.lastAttackTime = Time.time;
       //stop movement
-      ptera.rb.linearVelocity = Vector2.zero;
+      ptera.rb.linearVelocity = UnityEngine.Vector2.zero;
       //trigger animation
       ptera.anim.SetTrigger("Attack");
-      Debug.Log("Entered Attack");
+        UnityEngine.Debug.Log("Entered Attack");
     }
 
     public override void Exit()
 
     {
         base.Exit();
-        Debug.Log("Exited Attack");
+        UnityEngine.Debug.Log("Exited Attack");
     }
 
     public override void LogicUpdate()

@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd5eb4dfb19cc74438333d60bccd489d, type: 3}
+  m_Name: Ptera Stats
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyStats
+  maxHealth: 20
+  flyUpSpeed: 4
+  returnHeight: 8
+  speed: 4
+  cliffCheckDistance: 0
+  wallDistance: 3
+  enemyDistance: 0
+  playerDetectDistance: 15
+  detectedPauseTime: 2
+  playerDetectedWaitTime: 1
+  chargeTime: 1
+  chargeSpeed: 8
+  meleeDetectDistance: 0.5
+  damageAmount: 3
+  knockbackAngle: {x: 2, y: 0}
+  knockbackForce: 1
+  stegoDetectDistance: 0
+  stegoAggroCount: 0

@@ -13,8 +13,8 @@ public class PteraEnemy : MonoBehaviour//, IDamageable
     public PteraPlayerDetectedState playerDetectedState;
     public PteraSwoopState pteraSwoopState;
     public PteraAttackState pteraAttackState;
-    public StegoDamagedState damagedState;
-    public PteraFlyUpState;
+    public PteraDamagedState damagedState;
+    public PteraFlyUpState flyUpState;
 
     public Animator anim;
     public Rigidbody2D rb;
@@ -41,7 +41,7 @@ public class PteraEnemy : MonoBehaviour//, IDamageable
         playerDetectedState = new PteraPlayerDetectedState(this, "playerDetected");
         pteraSwoopState = new PteraSwoopState(this, "swoop");
         pteraAttackState = new PteraAttackState(this, "attack");
-        damagedState = new DamagedState(this, "damaged");
+        damagedState = new PteraDamagedState(this, "damaged");
         flyUpState = new PteraFlyUpState(this, "flyup");
 
         currentState = patrolState;
@@ -124,28 +124,16 @@ public class PteraEnemy : MonoBehaviour//, IDamageable
         
     #region Other Functions
 
-    public void SwitchState(PteraBaseState newState)
-
-    {
-        currentState.Exit();
-        currentState = newState;
-        currentState.Enter();
-        stateTime = Time.time;
-
-    }
 
     public void AnimationFinsihedTrigger()
 
     { currentState.AnimationFinishedTigger(); }
 
-    public void AnimationAttackTrigger()
-
-    { currentState.AnimationAttackTrigger(); }
 
     public void Damage(float damageAmount)
     { }
 
-    public void Damage(float damageAmount, float KBForce, Vector2 KBAngle)
+    public void Damage(float damageAmount, float KBForce, UnityEngine.Vector2 KBAngle)
 
     {
         damagedState.KBForce = KBForce;

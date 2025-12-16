@@ -1135,6 +1135,8 @@ GameObject:
   - component: {fileID: 776684330}
   - component: {fileID: 776684329}
   - component: {fileID: 776684328}
+  - component: {fileID: 776684332}
+  - component: {fileID: 776684333}
   m_Layer: 7
   m_Name: Actual Enemy Ptera
   m_TagString: Enemy Flyer
@@ -1273,12 +1275,72 @@ Transform:
   m_GameObject: {fileID: 776684327}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -46.6, y: 35.2, z: 0}
+  m_LocalPosition: {x: -73.35, y: 2.99, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 985746777}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &776684332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776684327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d2bac3b7e4daca4c8d6602fffafa693, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PteraEnemy
+  anim: {fileID: 0}
+  rb: {fileID: 776684329}
+  ledgeDetector: {fileID: 985746777}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 4096
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  damageableLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  pteraLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  facingDirection: 1
+  stateTime: 0
+  stats: {fileID: 11400000, guid: cd7a999b60c12694e911656bbcaf90f7, type: 2}
+  swoopSpeed: 0
+  currentHealth: 0
+  attackCooldown: 1.5
+  lastAttackTime: -999
+--- !u!95 &776684333
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776684327}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 26cb98dd22360944493c1d613d0100ff, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &803777243
 GameObject:
   m_ObjectHideFlags: 0
@@ -1318,6 +1380,37 @@ RectTransform:
   m_AnchoredPosition: {x: -491, y: 233}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &985746776
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 985746777}
+  m_Layer: 7
+  m_Name: LedgeDetection
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &985746777
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 985746776}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.98, y: -0.41, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 776684331}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1051205281
 GameObject:
   m_ObjectHideFlags: 0

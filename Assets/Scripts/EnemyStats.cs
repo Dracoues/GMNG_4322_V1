@@ -9,6 +9,8 @@ public class EnemyStats : ScriptableObject
 
     [Header("General Stats")]
     public float maxHealth = 20;
+    public float flyUpSpeed;
+    public float returnHeight;
 
     [Header("Patrol State")]
     public float speed;
