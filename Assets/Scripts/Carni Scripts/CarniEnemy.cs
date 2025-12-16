@@ -27,10 +27,13 @@ public class CarniEnemy : MonoBehaviour, IDamageable
     public int facingDirection = 1;
     public float stateTime;         //keep track of the time when we enter a new state
 
-
-
     public EnemyStats stats;
     public float currentHealth;
+
+    public StegoDetectionScript stegoDetector;
+
+    public float attackCooldown = 1.5f;
+    public float lastAttackTime = -999f;
 
     public float stegoCounter;
 
@@ -46,6 +49,7 @@ public class CarniEnemy : MonoBehaviour, IDamageable
         carniChargeState = new CarniChargeState(this, "charge");
         carniAttackState = new CarniAttackState(this, "attack");
         damagedState = new CarniDamagedState(this, "damaged");
+        stegoDetector = GetComponent<StegoDetectionScript>();
 
         currentState = patrolState; 
         currentState.Enter();
@@ -85,8 +89,6 @@ public class CarniEnemy : MonoBehaviour, IDamageable
             return false;
     }
 
-
-
     public bool CheckForPlayer()
 
     {
@@ -107,12 +109,18 @@ public class CarniEnemy : MonoBehaviour, IDamageable
 
         if (hitMeleeTarget.collider == true)
 
-        { return true; }
+        { Debug.Log("Melee True!");
+          return true; }
 
         else
+        {
+            Debug.Log("Melee False!");
             return false;
-
+        }
     }
+
+    public bool CanAttack()
+    { return Time.time >= lastAttackTime + attackCooldown; }
 
     #endregion
 
@@ -121,7 +129,6 @@ public class CarniEnemy : MonoBehaviour, IDamageable
     public void SwitchState(CarniBaseState newState)
 
     {
-
         currentState.Exit();
         currentState = newState;
         currentState.Enter();
