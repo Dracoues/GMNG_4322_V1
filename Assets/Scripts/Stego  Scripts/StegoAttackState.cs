@@ -11,6 +11,15 @@ public class StegoAttackState : StegoBaseState
     {
         base.Enter();
 
+        // start cooldown
+        stego.lastAttackTime = Time.time;
+
+        // stop movement
+        stego.rb.linearVelocity = Vector2.zero;
+
+        // trigger animation
+        stego.anim.SetTrigger("Attack");
+
         Debug.Log("Entered Attack");
 
     }
