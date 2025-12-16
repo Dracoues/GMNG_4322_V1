@@ -9,6 +9,17 @@ public class StegoDetectionScript : MonoBehaviour
     public float detectionRadius = 5f;
     public LayerMask stegoLayer;
 
+
+
+    public int lastStegoCount;
+
+    public void Update()
+    {
+        UnityEngine.Debug.Log("In stego detect update");
+        stegoIndex();
+        
+    }
+
     //many stegos!
     public int stegoIndex()
     {
@@ -23,7 +34,7 @@ public class StegoDetectionScript : MonoBehaviour
         UnityEngine.Debug.Log("in StegoAggro!");
         int count = stegoIndex();
         lastStegoCount = count;
-        UnityEngine.Debug.Log("This is Stego count" + count);
+        UnityEngine.Debug.Log("This is Stego count " + count);
         return count >= 2;
     }
 
