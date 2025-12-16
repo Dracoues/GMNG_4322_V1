@@ -22,6 +22,12 @@ public class Oil : MonoBehaviour
             player.PlaySFX(oilClip);
             oilText.text = player.oil.ToString();
             Destroy(gameObject);
-        }    
+
+            //if (player.oil =< 100)
+
+        }
+
+        
+
     }
 }
