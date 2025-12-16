@@ -18,46 +18,20 @@ public class CarniChargeState : CarniBaseState
 
     {
         base.Enter();
-        UnityEngine.Debug.Log("Entered Charge");
+        UnityEngine.Debug.Log("Entered Carni Charge");
     }
 
     public override void Exit()
 
     {
         base.Exit();
-        UnityEngine.Debug.Log("Exited Charge");
+        UnityEngine.Debug.Log("Exited Carni Charge");
     }
 
     public override void LogicUpdate()
 
     { base.LogicUpdate(); }
 
-    using Unity.VisualScripting.Antlr3.Runtime.Misc;
-using UnityEngine;
-
-public class StegoChargeState : StegoBaseState
-{
-    public StegoChargeState(StegoEnemy stego, string animationName) : base(stego, animationName)
-    {
-
-    }
-
-    public override void Enter()
-    {
-        base.Enter();
-        Debug.Log("Entered Charge");
-    }
-
-    public override void Exit()
-    {
-        base.Exit();
-        Debug.Log("Exited Charge");
-    }
-
-    public override void LogicUpdate()
-    {
-        base.LogicUpdate();
-    }
 
     public override void PhysicsUpdate()
     {
@@ -67,7 +41,7 @@ public class StegoChargeState : StegoBaseState
         {
             if (carni.CheckForPlayer())
             {
-                carni.SwitchState(carni.playerDetectedState);
+                carni.SwitchState(carni.carniplayerDetectedState);
             }
             else
                 carni.SwitchState(carni.patrolState);
@@ -75,33 +49,37 @@ public class StegoChargeState : StegoBaseState
         else
         {
 
-            if(carni.CheckForMeleeTarget() && carni.stegoDetector.CarniAggro() && carni.CanAttack())
+            if(carni.CheckForMeleeTarget() && carni.CarnistegoDetector.CarniAggro() && carni.CanAttack())
                 carni.SwitchState(carni.carniAttackState);
             Charge();
         }
 
     }
 
-   /* public bool CheckForStegosForAggro()
-    {
-        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(stego.stegoDetector.position, stego.stats.stegoDetectDistance, stego.stegoTag);
-        foreach (Collider2D hitCollider in hitColliders)
-        {
-            stego.stegoCounter++;
-            Debug.Log(stego.stegoCounter);
-        }
+    /* public bool CheckForStegosForAggro()
+     {
+         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(stego.stegoDetector.position, stego.stats.stegoDetectDistance, stego.stegoTag);
+         foreach (Collider2D hitCollider in hitColliders)
+         {
+             stego.stegoCounter++;
+             Debug.Log(stego.stegoCounter);
+         }
 
-        if (stego.stegoCounter >= 2)
-            return true;
-        else
-            return false;
+         if (stego.stegoCounter >= 2)
+             return true;
+         else
+             return false;
 
-    }*/
+     }*/
 
     void Charge()
+
     {
-        stego.rb.linearVelocity = new Vector2(stego.stats.chargeSpeed * stego.facingDirection, stego.rb.linearVelocityY);
+
+        carni.rb.linearVelocity = new Vector2(carni.stats.chargeSpeed * carni.facingDirection, carni.rb.linearVelocityY);
+
     }
+
 }
 
    /* public bool CheckForCarnisForAggro()
@@ -133,12 +111,4 @@ public class StegoChargeState : StegoBaseState
 
 
 
-    void Charge()
 
-    {
-
-        carni.rb.linearVelocity = new Vector2(carni.stats.chargeSpeed * carni.facingDirection, carni.rb.linearVelocityY);
-
-    }
-
-}

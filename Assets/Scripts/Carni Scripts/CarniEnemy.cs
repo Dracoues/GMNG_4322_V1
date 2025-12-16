@@ -30,7 +30,7 @@ public class CarniEnemy : MonoBehaviour, IDamageable
     public EnemyStats stats;
     public float currentHealth;
 
-    public StegoDetectionScript stegoDetector;
+    public StegoDetectionScript CarnistegoDetector;
 
     public float attackCooldown = 1.5f;
     public float lastAttackTime = -999f;
@@ -49,7 +49,7 @@ public class CarniEnemy : MonoBehaviour, IDamageable
         carniChargeState = new CarniChargeState(this, "charge");
         carniAttackState = new CarniAttackState(this, "attack");
         damagedState = new CarniDamagedState(this, "damaged");
-        stegoDetector = GetComponent<StegoDetectionScript>();
+        CarnistegoDetector = GetComponent<StegoDetectionScript>();
 
         currentState = patrolState; 
         currentState.Enter();
@@ -109,12 +109,12 @@ public class CarniEnemy : MonoBehaviour, IDamageable
 
         if (hitMeleeTarget.collider == true)
 
-        { Debug.Log("Melee True!");
+        { Debug.Log("Melee Carni True!");
           return true; }
 
         else
         {
-            Debug.Log("Melee False!");
+            Debug.Log("Melee Carni False!");
             return false;
         }
     }

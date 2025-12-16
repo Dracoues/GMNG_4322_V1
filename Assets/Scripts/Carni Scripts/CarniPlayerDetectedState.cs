@@ -11,7 +11,7 @@ public class CarniPlayerDetectedState : CarniBaseState
 
     {
         base.Enter();
-        UnityEngine.Debug.Log("Entered PlayerDetected");
+        UnityEngine.Debug.Log("Entered Carni  PlayerDetected");
     }
 
 
@@ -20,7 +20,7 @@ public class CarniPlayerDetectedState : CarniBaseState
 
     {
         base.Exit();
-        UnityEngine.Debug.Log("Exited PlayerDetected");
+        UnityEngine.Debug.Log("Exited  Carni  PlayerDetected");
         // carni.rb.linearVelocity = Vector2.zero;
     }
 

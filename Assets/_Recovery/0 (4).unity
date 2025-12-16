@@ -1135,6 +1135,7 @@ GameObject:
   - component: {fileID: 776684330}
   - component: {fileID: 776684329}
   - component: {fileID: 776684328}
+  - component: {fileID: 776684332}
   m_Layer: 7
   m_Name: Actual Enemy Ptera
   m_TagString: Enemy Flyer
@@ -1279,6 +1280,41 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &776684332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776684327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d2bac3b7e4daca4c8d6602fffafa693, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PteraEnemy
+  anim: {fileID: 0}
+  rb: {fileID: 776684329}
+  ledgeDetector: {fileID: 0}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  damageableLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  pteraLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  facingDirection: 1
+  stateTime: 0
+  stats: {fileID: 0}
+  swoopSpeed: 0
+  currentHealth: 0
 --- !u!1 &803777243
 GameObject:
   m_ObjectHideFlags: 0
@@ -10524,6 +10560,6 @@ SceneRoots:
   - {fileID: 3144658987071182488}
   - {fileID: 2107021994}
   - {fileID: 4102756655956793308}
-  - {fileID: 542603385}
   - {fileID: 776684331}
+  - {fileID: 542603385}
   - {fileID: 2228033794407653648}

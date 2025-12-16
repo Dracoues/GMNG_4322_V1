@@ -15,20 +15,20 @@ public class CarniPatrolState : CarniBaseState
     public override void Enter()
 
     {   base.Enter();
-        Debug.Log("Entered Patrol");
+        Debug.Log("Entered Carni Patrol");
     }
 
     public override void Exit()
 
     {   base.Exit();
-        Debug.Log("Exited Patrol");
+        Debug.Log("Exited Carni Patrol");
     }
 
     public override void LogicUpdate()
     {   base.LogicUpdate();
 
         if(carni.CheckForPlayer())
-            carni.SwitchState(carni.carniPlayerDetectedState);
+            carni.SwitchState(carni.carniplayerDetectedState);
 
         if (carni.CheckLedgesAndWallsAndCarnis())
             Rotate();

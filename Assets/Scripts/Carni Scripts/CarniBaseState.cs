@@ -11,9 +11,6 @@ public class CarniBaseState
     protected string animationName;
 
 
-
-
-
     public CarniBaseState( CarniEnemy carni, string animationName )
 
     {
@@ -23,9 +20,6 @@ public class CarniBaseState
         this.animationName = animationName;
 
     }
-
-
-
 
 
     public virtual void Enter()

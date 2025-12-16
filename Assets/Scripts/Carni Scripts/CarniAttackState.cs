@@ -18,7 +18,7 @@ public class CarniAttackState : CarniBaseState
         //trigger animation
         carni.anim.SetTrigger("Attack");
         
-        Debug.Log("Entered Attack");
+        Debug.Log("Entered  Carni Attack");
     }
 
 
@@ -27,7 +27,7 @@ public class CarniAttackState : CarniBaseState
 
     {
         base.Exit();
-        Debug.Log("Exited Attack");
+        Debug.Log("Exited  Carni Attack");
     }
 
     public override void LogicUpdate()
@@ -39,7 +39,7 @@ public class CarniAttackState : CarniBaseState
     {
         base.PhysicsUpdate();
 
-        if (carni.CheckForMeleeTarget() && carni.stegoDetector.CarniAggro())
+        if (carni.CheckForMeleeTarget() && carni.CarnistegoDetector.CarniAggro())
         {
         carni.SwitchState(carni.carniAttackState);
         AnimationAttackTrigger();
