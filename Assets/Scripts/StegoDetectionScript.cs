@@ -9,6 +9,8 @@ public class StegoDetectionScript : MonoBehaviour
     public float detectionRadius = 5f;
     public LayerMask stegoLayer;
 
+    public int lastStegoCount;
+
     public int stegoIndex()
     {
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(detectionPoint.position, detectionRadius, stegoLayer);
@@ -19,6 +21,7 @@ public class StegoDetectionScript : MonoBehaviour
     public bool StegoAggro()
     {
         int count = stegoIndex();
+        lastStegoCount = count;
         UnityEngine.Debug.Log(count);
         return count >= 2;
     }
@@ -26,6 +29,7 @@ public class StegoDetectionScript : MonoBehaviour
     public bool CarniAggro()
     {
         int count = stegoIndex();
+        lastStegoCount = count;
         UnityEngine.Debug.Log(count);
         return count <= 2;
     }
