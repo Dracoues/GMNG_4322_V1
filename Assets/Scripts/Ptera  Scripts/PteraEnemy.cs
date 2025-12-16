@@ -14,6 +14,7 @@ public class PteraEnemy : MonoBehaviour//, IDamageable
     public PteraSwoopState pteraSwoopState;
     public PteraAttackState pteraAttackState;
     public StegoDamagedState damagedState;
+    public PteraFlyUpState;
 
     public Animator anim;
     public Rigidbody2D rb;
@@ -41,6 +42,7 @@ public class PteraEnemy : MonoBehaviour//, IDamageable
         pteraSwoopState = new PteraSwoopState(this, "swoop");
         pteraAttackState = new PteraAttackState(this, "attack");
         damagedState = new DamagedState(this, "damaged");
+        flyUpState = new PteraFlyUpState(this, "flyup");
 
         currentState = patrolState;
         currentState.Enter();
