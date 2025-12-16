@@ -13,18 +13,18 @@ MonoBehaviour:
   m_Name: Carni Stats
   m_EditorClassIdentifier: Assembly-CSharp::EnemyStats
   maxHealth: 20
-  speed: 0
-  cliffCheckDistance: 0
-  wallDistance: 0
+  speed: 2
+  cliffCheckDistance: 1.5
+  wallDistance: 1
   enemyDistance: 0
-  playerDetectDistance: 0
-  detectedPauseTime: 0
-  playerDetectedWaitTime: 0
-  chargeTime: 0
-  chargeSpeed: 0
-  meleeDetectDistance: 0
-  damageAmount: 0
-  knockbackAngle: {x: 0, y: 0}
-  knockbackForce: 0
-  stegoDetectDistance: 0
-  stegoAggroCount: 0
+  playerDetectDistance: 5
+  detectedPauseTime: 1
+  playerDetectedWaitTime: 1
+  chargeTime: 2
+  chargeSpeed: 6
+  meleeDetectDistance: 0.5
+  damageAmount: 15
+  knockbackAngle: {x: 5, y: 2}
+  knockbackForce: 5
+  stegoDetectDistance: 20
+  stegoAggroCount: 2

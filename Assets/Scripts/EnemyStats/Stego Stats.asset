@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Stego Stats
   m_EditorClassIdentifier: Assembly-CSharp::EnemyStats
   maxHealth: 20
-  speed: 2
+  speed: 3
   cliffCheckDistance: 1.5
   wallDistance: 1
   enemyDistance: 0
@@ -24,7 +24,7 @@ MonoBehaviour:
   chargeSpeed: 4
   meleeDetectDistance: 0.5
   damageAmount: 5
-  knockbackAngle: {x: 2, y: 1}
+  knockbackAngle: {x: 2, y: 2}
   knockbackForce: 2
   stegoDetectDistance: 10
-  stegoAggroCount: 2
+  stegoAggroCount: 4

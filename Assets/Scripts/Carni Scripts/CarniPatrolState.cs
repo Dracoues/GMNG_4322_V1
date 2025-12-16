@@ -47,24 +47,13 @@ public class CarniPatrolState : CarniBaseState
     public override void LogicUpdate()
 
     {
-
         base.LogicUpdate();
 
-
-
         if(carni.CheckForPlayer())
-
             carni.SwitchState(carni.carniplayerDetectedState);
 
-
-
         if (carni.CheckLedgesAndWallsAndCarnis())
-
             Rotate();
-
-        
-
-        
 
     }
 
@@ -73,17 +62,11 @@ public class CarniPatrolState : CarniBaseState
     public override void PhysicsUpdate()
 
     {
-
         base.PhysicsUpdate();
 
-
-
         if (carni.facingDirection == 1)
-
             carni.rb.linearVelocity = new Vector2(carni.stats.speed, carni.rb.linearVelocityY);
-
         else
-
             carni.rb.linearVelocity = new Vector2(-carni.stats.speed, carni.rb.linearVelocityY);
 
     }
@@ -95,7 +78,6 @@ public class CarniPatrolState : CarniBaseState
     {
 
         carni.transform.Rotate(0, 180, 0);
-
         carni.facingDirection = -carni.facingDirection;
 
     }
